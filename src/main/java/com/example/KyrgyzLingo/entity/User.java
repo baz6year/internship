@@ -17,4 +17,6 @@ public class User {
     String email;
     @Column(nullable = false)
     String password;
+    private String level;
+    private int learnedWordsCount;
 }

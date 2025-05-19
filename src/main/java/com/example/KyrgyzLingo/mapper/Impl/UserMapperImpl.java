@@ -6,6 +6,9 @@ import com.example.KyrgyzLingo.entity.User;
 import com.example.KyrgyzLingo.mapper.UserMapper;
 import org.springframework.stereotype.Component;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Component
 public class UserMapperImpl implements UserMapper {
     @Override
@@ -23,5 +26,16 @@ public class UserMapperImpl implements UserMapper {
         userResponse.setUsername(user.getUsername());
         userResponse.setPassword(user.getPassword());
         return userResponse;
+    }
+
+    @Override
+    public List<UserResponse> toResponses(List<User> users) {
+        List<UserResponse> userResponses = new ArrayList<>();
+
+        for (User user : users) {
+            userResponses.add(toResponse(user));
+        }
+
+        return userResponses;
     }
 }
