@@ -7,9 +7,9 @@ import com.example.KyrgyzLingo.entity.User;
 import java.util.List;
 
 public interface UserService {
-        UserResponse getUserById(Long id);
+        User getUserById(Long id);
         List<UserResponse> getAllUsers();
-        UserResponse updateUser(Long id, UserRequest request);
+        User updateUser(Long id, UserRequest request);
         void deleteUser(Long id);
         void changeLevel(Long userId, String newLevel);
 }
