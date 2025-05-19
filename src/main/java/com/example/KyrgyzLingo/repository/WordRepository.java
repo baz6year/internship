@@ -12,5 +12,6 @@ public interface WordRepository extends JpaRepository<Word, Long> {
     List<Word> findByTopic(String topic);
     List<Word> findByKyrgyzWordContainingIgnoreCase(String kyrgyzWord);
     List<Word> findByTranslationContainingIgnoreCase(String translation);
+    List<Word> findByTopicIgnoreCase(String topic);
 }
 
