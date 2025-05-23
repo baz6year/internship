@@ -3,8 +3,8 @@ package com.example.KyrgyzLingo.dto;
 import lombok.Data;
 
 @Data
-public class UserResponse {
+public class TopicResponse {
     Long id;
-    String username;
-    String password;
+    String title;
+
 }
