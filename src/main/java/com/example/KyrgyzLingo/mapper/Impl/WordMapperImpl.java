@@ -18,7 +18,6 @@ public class WordMapperImpl implements WordMapper {
         dto.setKyrgyzWord(word.getKyrgyzWord());
         dto.setTranslation(word.getTranslation());
         dto.setTranscription(word.getTranscription());
-        dto.setTopic(word.getTopic());
         return dto;
     }
 
@@ -34,7 +33,6 @@ public class WordMapperImpl implements WordMapper {
         word.setKyrgyzWord(dto.getKyrgyzWord());
         word.setTranslation(dto.getTranslation());
         word.setTranscription(dto.getTranscription());
-        word.setTopic(dto.getTopic());
         return word;
     }
 }

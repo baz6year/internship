@@ -2,7 +2,6 @@ package com.example.KyrgyzLingo.controller;
 
 import com.example.KyrgyzLingo.dto.WordDTO;
 import com.example.KyrgyzLingo.service.WordService;
-import lombok.AllArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -10,10 +9,13 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/words")
-@AllArgsConstructor
 public class WordController {
 
     private final WordService wordService;
+
+    public WordController(WordService wordService) {
+        this.wordService = wordService;
+    }
 
     @PostMapping
     public ResponseEntity<WordDTO> createWord(@RequestBody WordDTO wordDto) {
@@ -39,10 +41,5 @@ public class WordController {
     public ResponseEntity<Void> deleteWord(@PathVariable Long id) {
         wordService.deleteWord(id);
         return ResponseEntity.noContent().build();
-    }
-
-    @GetMapping("/by-topic")
-    public ResponseEntity<List<WordDTO>> getWordsByTopic(@RequestParam String topic) {
-        return ResponseEntity.ok(wordService.getWordsByTopic(topic));
     }
 }

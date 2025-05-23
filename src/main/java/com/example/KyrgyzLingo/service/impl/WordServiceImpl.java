@@ -6,18 +6,21 @@ import com.example.KyrgyzLingo.exception.ResourceNotFoundException;
 import com.example.KyrgyzLingo.mapper.WordMapper;
 import com.example.KyrgyzLingo.repository.WordRepository;
 import com.example.KyrgyzLingo.service.WordService;
-import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.stream.Collectors;
 
 @Service
-@AllArgsConstructor
 public class WordServiceImpl implements WordService {
 
     private final WordRepository wordRepository;
     private final WordMapper wordMapper;
+
+    public WordServiceImpl(WordRepository wordRepository, WordMapper wordMapper) {
+        this.wordRepository = wordRepository;
+        this.wordMapper = wordMapper;
+    }
 
     @Override
     public WordDTO createWord(WordDTO wordDto) {
@@ -49,7 +52,7 @@ public class WordServiceImpl implements WordService {
         existing.setKyrgyzWord(wordDto.getKyrgyzWord());
         existing.setTranslation(wordDto.getTranslation());
         existing.setTranscription(wordDto.getTranscription());
-        existing.setTopic(wordDto.getTopic());
+        //existing.setTopic(wordDto.getTopic());
 
         Word updated = wordRepository.save(existing);
         return wordMapper.toDto(updated);
@@ -60,13 +63,5 @@ public class WordServiceImpl implements WordService {
         Word word = wordRepository.findById(id)
                 .orElseThrow(() -> new ResourceNotFoundException("Word not found with id: " + id));
         wordRepository.delete(word);
-    }
-
-    @Override
-    public List<WordDTO> getWordsByTopic(String topic) {
-        return wordRepository.findByTopicIgnoreCase(topic)
-                .stream()
-                .map(wordMapper::toDto)
-                .collect(Collectors.toList());
     }
 }

@@ -1,9 +1,21 @@
 package com.example.KyrgyzLingo.dto;
 
-import lombok.Data;
-
-@Data
 public class TopicRequest {
-    String title;
+    private String title;
 
+    public TopicRequest() {
+    }
+
+    public TopicRequest(String title) {
+        this.title = title;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
 }
+

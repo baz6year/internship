@@ -6,25 +6,30 @@ public class WordDTO {
     private String kyrgyzWord;
     private String translation;
     private String transcription;
-    private String topic;
+    //private String topic;
+
 
     public WordDTO() {
     }
 
-    public WordDTO(Long id, String kyrgyzWord, String translation, String transcription, String topic) {
+    public WordDTO(Long id, String kyrgyzWord, String translation, String transcription) {
         this.id = id;
         this.kyrgyzWord = kyrgyzWord;
         this.translation = translation;
         this.transcription = transcription;
-        this.topic = topic;
+        //this.topic = topic;
     }
+
+
 
     public Long getId() {
         return id;
     }
+
     public void setId(Long id) {
         this.id = id;
     }
+
     public String getKyrgyzWord() {
         return kyrgyzWord;
     }
@@ -49,10 +54,11 @@ public class WordDTO {
         this.transcription = transcription;
     }
 
-    public String getTopic() {
+    /*public String getTopic() {
         return topic;
     }
+
     public void setTopic(String topic) {
         this.topic = topic;
-    }
+    }*/
 }

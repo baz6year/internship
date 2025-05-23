@@ -4,16 +4,20 @@ import com.example.KyrgyzLingo.dto.UserRequest;
 import com.example.KyrgyzLingo.dto.UserResponse;
 import com.example.KyrgyzLingo.entity.User;
 import com.example.KyrgyzLingo.service.UserService;
-import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
-@AllArgsConstructor
 @RequestMapping("/user")
 public class UserController {
+
     private final UserService userService;
+
+    public UserController(UserService userService) {
+        this.userService = userService;
+    }
+
     @GetMapping("/get/{id}")
     public User getUserById(@PathVariable Long id) {
         return userService.getUserById(id);
@@ -33,10 +37,4 @@ public class UserController {
     public void deleteUser(@RequestBody User user) {
         userService.deleteUser(user.getId());
     }
-
-
-
-
-
-
 }

@@ -11,6 +11,6 @@ public interface WordService {
     List<WordDTO> getAllWords();
     WordDTO updateWord(Long id, WordDTO wordDto);
     void deleteWord(Long id);
-    List<WordDTO> getWordsByTopic(String topic); // поиск по теме
+    //List<WordDTO> getWordsByTopic(String topic); // поиск по теме
 }
 
