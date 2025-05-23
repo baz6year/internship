@@ -2,7 +2,7 @@ package com.example.KyrgyzLingo.service.impl;
 
 import com.example.KyrgyzLingo.dto.WordDTO;
 import com.example.KyrgyzLingo.entity.Word;
-import com.example.KyrgyzLingo.exceptions.ResourceNotFoundException;
+import com.example.KyrgyzLingo.exception.ResourceNotFoundException;
 import com.example.KyrgyzLingo.mapper.WordMapper;
 import com.example.KyrgyzLingo.repository.WordRepository;
 import com.example.KyrgyzLingo.service.WordService;
